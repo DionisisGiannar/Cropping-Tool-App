@@ -35,7 +35,7 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 	 * Create the panel.
 	 */
 	public ImageLabel() {
-		icon = new ImageIcon("images.jpg");
+		icon = new ImageIcon("test-Images\\images.jpg");
 		
 		image = icon.getImage();
 		this.setVisible(true);
