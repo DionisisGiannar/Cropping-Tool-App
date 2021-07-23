@@ -1,5 +1,6 @@
 package CroppingPack1;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,9 +13,14 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
+import java.io.File;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingConstants;
 
 
 public class ImageLabel extends JLabel implements ActionListener, MouseListener, MouseMotionListener{
@@ -23,10 +29,10 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 	
 	final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();// screenSize
 	
+	String fileName;
 	ImageIcon icon; // initialize the icon
 	Image image; // initialize the image
 	Image croppedImage; //initialize the cropped Image
-	
 	Coordinates coord = new Coordinates(); //Object for the Coordinates
 	
 	int x1, y1, x2, y2;// Local Coordinates
@@ -35,7 +41,7 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 	 * Create the panel.
 	 */
 	public ImageLabel() {
-		icon = new ImageIcon("test-Images\\images.jpg");
+		icon = new ImageIcon(fileName);
 		
 		image = icon.getImage();
 		this.setVisible(true);
@@ -47,6 +53,11 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 		this.addMouseMotionListener(this);
 
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	}
+	
 	/**
 	 * Sets the starting Coordinates
 	 * @param x
@@ -77,6 +88,7 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 
     public void mouseDragged(MouseEvent e) {
         setEndPoint(e.getX(), e.getY());
+        setCoordinates(x1, y1, x2, y2);
         repaint();
         
     }
@@ -94,8 +106,7 @@ public class ImageLabel extends JLabel implements ActionListener, MouseListener,
 	public void mouseEntered(MouseEvent e) {}
 	@Override
 	public void mouseExited(MouseEvent e) {}
-	@Override
-	public void actionPerformed(ActionEvent e) {}
+	
 	
     /**
      * Sets the Coordinates of the Rectangle/Cropped image

@@ -12,9 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class RectanglePanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	Coordinates coord = new Coordinates();
@@ -43,9 +41,7 @@ public class RectanglePanel extends JPanel implements ActionListener, MouseListe
     }
 
     public void mouseDragged(MouseEvent e) {
-        setEndPoint(e.getX(), e.getY());
-        
-        
+        setEndPoint(e.getX(), e.getY());    
     }
 
     public void mouseReleased(MouseEvent e) {
@@ -67,7 +63,6 @@ public class RectanglePanel extends JPanel implements ActionListener, MouseListe
         g.drawRect(coord.getX(), coord.getY(), coord.getWidth(), coord.getHeight());
         
         repaint();
-       
     }
 	
 	@Override
@@ -78,11 +73,7 @@ public class RectanglePanel extends JPanel implements ActionListener, MouseListe
 	public void mouseEntered(MouseEvent e) {}
 	@Override
 	public void mouseExited(MouseEvent e) {}
-	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		 
-
-	}
+	public void actionPerformed(ActionEvent e) {}
 	
 }

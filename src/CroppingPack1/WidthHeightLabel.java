@@ -2,18 +2,13 @@ package CroppingPack1;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Label;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+import java.awt.event.MouseMotionListener;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class WidthHeightLabel extends JLabel{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	ImageLabel imgLbl;
@@ -23,32 +18,22 @@ public class WidthHeightLabel extends JLabel{
 		setHorizontalAlignment(SwingConstants.CENTER);
 		this.setForeground(Color.BLACK);
 		this.setFont(new Font("C059", Font.PLAIN, 15));
-		
 		this.setBounds(73, 10, 123, 53);
 		this.setBackground(new Color(179, 179, 179, 100));
 		
 		this.setText(imgLbl.coord.getWidth()+"x"+imgLbl.coord.getWidth());
 		
-		imgLbl.addMouseListener(new MouseListener() {
+		imgLbl.addMouseMotionListener(new MouseMotionListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {}
-			@Override
-			public void mousePressed(MouseEvent e) {}
-			@Override
-			public void mouseReleased(MouseEvent e) {
+			public void mouseDragged(MouseEvent e) {
 				setTheText();
 			}
 			@Override
-			public void mouseEntered(MouseEvent e) {}
-			@Override
-			public void mouseExited(MouseEvent e) {}
-			
+			public void mouseMoved(MouseEvent e) {}
 		});
-
 	}
 	
-	private void setTheText() {
-		
+	void setTheText() {
 		this.setText(imgLbl.coord.getWidth()+"x"+imgLbl.coord.getHeight());
-		}
 	}
+}

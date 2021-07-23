@@ -62,7 +62,7 @@ public class CroppingApp {
 	 */
 	private static String Path() {
 		Scanner input = new Scanner(System.in);
-		System.out.print("/nGive the path of the image you want to crop :");
+		System.out.print("/nGive the path of the image you want to crop : ");
 		String path = input.nextLine();
 		input.close();
 		
