@@ -65,7 +65,7 @@ public class CropAppFrame extends JFrame implements ActionListener{ //Creates a 
 		 getContentPane().add(txtLabel);
 
 		//image Label
-		 imgLabel = new ImageLabel();
+		imgLabel = new ImageLabel();
 		imgLabel.setSize(1835, 934);
 		imgLabel.setLocation(73, 69);
 		
